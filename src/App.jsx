@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./components/Layout";
-import ProfilePage from "./components/ProfilePage";
-import ChatPage from "./components/ChatPage";
-import ChatDetailsPage from "./components/ChatDetailsPage";
-import CallPage from "./components/CallPage";
-import StatusPage from "./components/StatusPage";
-import SettingsPage from "./components/SettingsPage";
-import ContactsPage from "./components/ContactsPage";
+import Layout from "./components/layout";
+import ProfilePage from "./components/profilePage";
+import ChatPage from "./components/chatPage";
+import ChatDetailsPage from "./components/chatDetailsPage";
+import CallPage from "./components/callPage";
+import StatusPage from "./components/statusPage";
+import SettingsPage from "./components/settingsPage";
+import ContactsPage from "./components/contactsPage";
+
+
 
 const App = () => {
   return (
