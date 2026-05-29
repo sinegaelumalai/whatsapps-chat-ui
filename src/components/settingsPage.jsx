@@ -40,9 +40,6 @@ const SettingsPage = () => {
     const [showBlockedContacts, setShowBlockedContacts] = useState(false);
     const [showThemePopup, setShowThemePopup] = useState(false);
     const [theme, setTheme] = useState("Light");
-    const [showBlockPopup, setShowBlockPopup] = useState(false);
-
-
     return (
         <div className="flex flex-1 h-screen">
 
@@ -1173,103 +1170,6 @@ const SettingsPage = () => {
                                 >
                                     Apply
                                 </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                )}
-
-                {showBlockPopup && (
-
-                    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-[999]">
-
-                        <div className="w-[420px] bg-white rounded-[20px] p-6 shadow-xl">
-
-                            {/* HEADER */}
-                            <div className="flex items-center gap-5 border-b border-gray-300 pb-5">
-
-                                <button
-                                    onClick={() => setShowBlockPopup(false)}
-                                    className="text-[28px] text-gray-500"
-                                >
-                                    ✕
-                                </button>
-
-                                <h2 className="text-[28px] font-semibold">
-                                    Block New Contact
-                                </h2>
-                            </div>
-
-                            {/* SEARCH */}
-                            <div className="mt-5 mb-6">
-
-                                <input
-                                    type="text"
-                                    placeholder="Search"
-                                    className="w-full bg-[#e7edf8] rounded-xl px-4 py-3 outline-none"
-                                />
-
-                            </div>
-
-                            {/* CONTACTS */}
-                            <div className="space-y-5 max-h-[420px] overflow-y-auto">
-
-                                {[
-                                    {
-                                        name: "Dinesh",
-                                        about: "Enjoy life to the fullest",
-                                        img: p1
-                                    },
-                                    {
-                                        name: "Dog Hat",
-                                        about: "You can call me at random..",
-                                        img: p2
-                                    },
-                                    {
-                                        name: "Cute Turtle",
-                                        about: "Almost there",
-                                        img: p3
-                                    },
-                                    {
-                                        name: "Cool spirit",
-                                        about: "Fiddling with ideas",
-                                        img: p4
-                                    },
-                                    {
-                                        name: "strange cat",
-                                        about: "Omw to discover myself",
-                                        img: p5
-                                    }
-                                ].map((user, index) => (
-
-                                    <div
-                                        key={index}
-                                        className="flex items-center gap-4 cursor-pointer hover:bg-gray-100 p-2 rounded-xl"
-                                    >
-
-                                        <img
-                                            src={user.img}
-                                            alt=""
-                                            className="w-12 h-12 rounded-full object-cover"
-                                        />
-
-                                        <div>
-
-                                            <h3 className="font-semibold">
-                                                {user.name}
-                                            </h3>
-
-                                            <p className="text-sm text-gray-500">
-                                                {user.about}
-                                            </p>
-
-                                        </div>
-
-                                    </div>
-
-                                ))}
 
                             </div>
 
