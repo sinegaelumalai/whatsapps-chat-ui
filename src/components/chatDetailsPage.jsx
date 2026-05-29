@@ -55,10 +55,20 @@ const ChatDetailsPage = () => {
     const [showMediaDocs, setShowMediaDocs] = useState(false);
     const [activeTab, setActiveTab] = useState("media");
 
+    const [message, setMessage] = useState("");
+    const [messages, setMessages] = useState([]);
+
 
     const selectedChat = chats.find(
         (chat) => chat.id === Number(id)
     );
+
+    const handleSend = () => {
+        if (!message.trim()) return;
+
+        setMessages([...messages, message]);
+        setMessage("");
+    };
 
     if (!selectedChat) return null;
 
@@ -156,6 +166,14 @@ const ChatDetailsPage = () => {
                         Thnx!
                     </div>
                 </div>
+
+                {messages.map((msg, index) => (
+                    <div key={index} className="flex justify-end mt-4">
+                        <div className="bg-[#5f96f9] text-white px-5 py-3 rounded-2xl text-sm">
+                            {msg}
+                        </div>
+                    </div>
+                ))}
             </div>
 
             {/* INPUT */}
@@ -164,10 +182,15 @@ const ChatDetailsPage = () => {
                 <input
                     type="text"
                     placeholder="Write a message..."
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     className="flex-1 outline-none"
                 />
                 <Smile size={18} className="text-blue-500" />
-                <button className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center">
+                <button
+                    onClick={handleSend}
+                    className="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center"
+                >
                     <Send size={16} className="text-white" />
                 </button>
             </div>

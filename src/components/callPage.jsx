@@ -54,6 +54,21 @@ const CallPage = () => {
     const [showMediaDocs, setShowMediaDocs] = useState(false);
     const [activeTab, setActiveTab] = useState("media");
 
+
+    const [message, setMessage] = useState("");
+
+    const [messages, setMessages] = useState([
+        "Can you send me an abstract image?",
+        "Thnx!"
+    ]);
+
+    const handleSend = () => {
+        if (!message.trim()) return;
+
+        setMessages([...messages, message]);
+        setMessage("");
+    };
+
     return (
         <div className="flex flex-1 min-w-0 h-screen overflow-hidden">
 
@@ -223,11 +238,13 @@ const CallPage = () => {
                         <span className="text-xs text-gray-500">11:25</span>
                     </div>
 
-                    <div className="flex justify-end">
-                        <div className="bg-[#5f96f9] text-white px-5 py-3 rounded-2xl text-sm">
-                            Thnx!
+                    {messages.map((msg, index) => (
+                        <div key={index} className="flex justify-end mb-3">
+                            <div className="bg-[#5f96f9] text-white px-5 py-3 rounded-2xl text-sm">
+                                {msg}
+                            </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
 
                 {/* INPUT */}
@@ -236,10 +253,15 @@ const CallPage = () => {
                     <input
                         type="text"
                         placeholder="Write a message..."
+                        value={message}
+                        onChange={(e) => setMessage(e.target.value)}
                         className="flex-1 bg-transparent outline-none text-sm"
                     />
                     <Smile size={18} className="text-blue-500" />
-                    <button className="w-9 h-9 rounded-lg bg-blue-500 flex items-center justify-center">
+                    <button
+                        onClick={handleSend}
+                        className="w-9 h-9 rounded-lg bg-blue-500 flex items-center justify-center"
+                    >
                         <Send size={16} className="text-white" />
                     </button>
                 </div>
