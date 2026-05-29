@@ -1,4 +1,3 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout";
 import ProfilePage from "./components/profilePage";
 import ChatPage from "./components/chatPage";
@@ -7,6 +6,7 @@ import CallPage from "./components/callPage";
 import StatusPage from "./components/statusPage";
 import SettingsPage from "./components/settingsPage";
 import ContactsPage from "./components/contactsPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 
 
